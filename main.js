@@ -9,11 +9,11 @@ const app = document.getElementById('app');
 const handleClick = (e) => {
     const { target } = e;
     if (target.classList.contains('equation') && !target.classList.contains('answered')) {
-        const answer = prompt('What is the answer?');
+        const answer = prompt(target.textContent);
         if (answer == target.getAttribute('data-answer')) {
             target.classList.add('correct');
             target.classList.add('answered');
-        } else {
+        } else if (answer) {
             target.classList.add('wrong');
             target.classList.add('answered');
         }
