@@ -9,7 +9,7 @@ const app = document.getElementById('app');
 const handleClick = (e) => {
     const { target } = e;
     if (target.classList.contains('equation') && !target.classList.contains('answered')) {
-        const answer = prompt(target.textContent);
+        const answer = prompt(`What is ${target.textContent}?`);
         if (answer == target.getAttribute('data-answer')) {
             target.classList.add('correct');
             target.classList.add('answered');
