@@ -1,10 +1,10 @@
 import GetParts from "./scripts/imager.js";
-
-const isLocal = () => location.hostname === "localhost" || location.hostname === "127.0.0.1";
-
-const baseURL = isLocal() ? '' : 'https://hromov.github.io/child-math';
+import GetImages from "./scripts/api.js";
 
 const app = document.getElementById('app');
+
+const maxMistakes = 3;
+let wrong = 0;
 
 const handleClick = (e) => {
     const { target } = e;
@@ -14,6 +14,10 @@ const handleClick = (e) => {
             target.classList.add('correct');
             target.classList.add('answered');
         } else if (answer) {
+            wrong++;
+            if (wrong >= maxMistakes) {
+                location.reload();
+            }
             target.classList.add('wrong');
             target.classList.add('answered');
         }
@@ -22,8 +26,11 @@ const handleClick = (e) => {
 
 app.addEventListener('click', handleClick);
 
-const init = () => {
-    const imageParts = GetParts(`${baseURL}/assets/images/1.jpg`, 3, 5);
+const init = async () => {
+    const images = await GetImages();
+    const imageIndex = Math.floor(Math.random() * images.length);
+    const imagePath = images[imageIndex];
+    const imageParts = GetParts(`${imagePath}`, 3, 5);
     const fragment = document.createDocumentFragment();
     imageParts.forEach(el => fragment.appendChild(el));
     app.appendChild(fragment);
