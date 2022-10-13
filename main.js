@@ -30,7 +30,7 @@ const init = async () => {
     const images = await GetImages();
     const imageIndex = Math.floor(Math.random() * images.length);
     const imagePath = images[imageIndex];
-    const imageParts = GetParts(`${imagePath}`, 3, 5);
+    const imageParts = GetParts(`${imagePath}`, 3, 4);
     const fragment = document.createDocumentFragment();
     imageParts.forEach(el => fragment.appendChild(el));
     app.appendChild(fragment);
