@@ -40,24 +40,107 @@ body {
   opacity: 0;
 }
 .equation {
-    position: relative;
-    z-index: 1;
+  position: relative;
+  z-index: 1;
 }
 .equation:not(.answered) {
-    cursor: pointer;
+  cursor: pointer;
 }
 .answered.correct + .inner {
-    opacity: 100%;
+  opacity: 100%;
 }
 .answered.wrong + .inner {
-    opacity: 10%;
+  opacity: 10%;
 }
 .wrong {
-    text-decoration: line-through;
-    color: red;
+  text-decoration: line-through;
+  color: red;
 }
 .correct {
-    color: green;
-    opacity: 0.3;
+  color: green;
+  opacity: 0.3;
 }
-  
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+  max-width: 480px;
+}
+
+input {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 2rem;
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 1rem;
+  gap: 1rem;
+}
+
+button {
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.submit {
+  grid-column-start: 2;
+  background-color: #04aa6d;
+  color: #ffffff;
+  border-color: #04aa6d;
+}
+
+.submit:hover {
+  box-shadow: none;
+  background-color: #059862;
+}
+
+h2 {
+  text-align: center;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}

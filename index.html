@@ -1,14 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
     <title>Document</title>
     <script src="main.js" type="module"></script>
-</head>
-<body>
+  </head>
+  <body>
     <div id="app"></div>
-</body>
+    <div id="modal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span id="modal-close" class="close">&times;</span>
+        <h2 id="header"></h2>
+        <input type="number" id="answer" />
+        <div class="buttons">
+          <button class="button">1</button>
+          <button class="button">2</button>
+          <button class="button">3</button>
+          <button class="button">4</button>
+          <button class="button">5</button>
+          <button class="button">6</button>
+          <button class="button">7</button>
+          <button class="button">8</button>
+          <button class="button">9</button>
+          <button class="clear">C</button>
+          <button class="button">0</button>
+          <button class="delete">&lt;</button>
+          <button class="submit">OK</button>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>

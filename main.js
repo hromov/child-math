@@ -1,19 +1,25 @@
 import GetParts from "./scripts/imager.js";
 import GetImages from "./scripts/api.js";
+import OpenModal from "./scripts/modal.js";
 
 const app = document.getElementById('app');
 
 const maxMistakes = 3;
 let wrong = 0;
 
-const handleClick = (e) => {
+const isAnswerable = (target) => target.classList.contains('equation') && !target.classList.contains('answered')
+
+const handleClick = async (e) => {
     const { target } = e;
-    if (target.classList.contains('equation') && !target.classList.contains('answered')) {
-        const answer = prompt(`What is ${target.textContent}?`);
+    if (isAnswerable(target)) {
+        const answer = await OpenModal(`What is ${target.textContent}?`);
+        if (answer == null) {
+            return
+        }
         if (answer == target.getAttribute('data-answer')) {
             target.classList.add('correct');
             target.classList.add('answered');
-        } else if (answer) {
+        } else {
             wrong++;
             if (wrong >= maxMistakes) {
                 location.reload();
