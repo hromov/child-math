@@ -9,14 +9,16 @@ modal.addEventListener("click", (e) => {
   switch (e.target.className) {
     case "modal":
     case "close":
-      resolveModal("");
+      resolveModal(null);
       close();
       break;
     case "button":
-      if (!answer.value && e.target.textContent == 0) {
-        break;
+      const newValue = answer.value + e.target.textContent;
+      if (newValue.length > 1) {
+        answer.value = newValue.replace(/^(0)/,'')
+      } else {
+        answer.value = newValue;
       }
-      answer.value += e.target.textContent;
       break;
     case "clear":
       answer.value = "";
