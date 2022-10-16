@@ -1,6 +1,7 @@
 import GetParts from "./scripts/imager.js";
 import GetImages from "./scripts/api.js";
 import OpenModal from "./scripts/modal.js";
+import Say from "./scripts/voice.js";
 
 const app = document.getElementById('app');
 
@@ -19,13 +20,17 @@ const handleClick = async (e) => {
         if (answer == target.getAttribute('data-answer')) {
             target.classList.add('correct');
             target.classList.add('answered');
+            Say('Good Job!');
         } else {
             wrong++;
             if (wrong >= maxMistakes) {
+                Say('Game Over! Qua-Qua-Qua');
+                alert('Game Over!');
                 location.reload();
             }
             target.classList.add('wrong');
             target.classList.add('answered');
+            Say('Nope');
         }
     }
 };
