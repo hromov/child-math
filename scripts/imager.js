@@ -37,8 +37,11 @@ function getInner(url, cols, rows, i, j) {
 }
 
 function getEquation(n) {
-  const second = getRandomInt(10)+1;
-  const first = n - second;
+  let second = getRandomInt(10)+1;
+  let first = n - second;
+  if (second > first) {
+    [first, second] = [second, first];
+  }
   const sign = Math.random() > 0.5 ? "+" : "-";
   return `${first} ${sign} ${second}`;
 }
