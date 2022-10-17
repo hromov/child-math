@@ -27,7 +27,7 @@ body {
 .image-part {
   position: relative;
   font-size: 4rem;
-  padding: 2rem 1rem;
+  padding: 3rem 1rem;
   text-align: center;
 }
 .inner {
@@ -114,7 +114,7 @@ input {
 
 button {
   cursor: pointer;
-  padding: 0.5rem;
+  padding: 1rem;
 }
 
 .submit {
